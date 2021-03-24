@@ -9,7 +9,7 @@ import (
 	"github.com/miekg/dns"
 )
 
-const internalIPv4 = "192.168.1.100"
+const internalIPv4 = "192.168.1.143"
 
 var dnsClient = &dns.Client{
 	Net:          "udp",
@@ -24,7 +24,7 @@ func isDomain(child, parrent string) bool {
 
 func getIP(q dns.Question) string {
 	domain := strings.Trim(q.Name, ".")
-	if isDomain(domain, "target.vn") {
+	if isDomain(domain, "hrservices.vn") {
 		if q.Qtype == dns.TypeA {
 			return internalIPv4
 		}
