@@ -107,7 +107,7 @@ func responseQuery(reqMsg, replyMsg *dns.Msg) {
 			continue
 		}
 		log.Println("Query", dns.Type(q.Qtype).String(), ":", q.Name, "==>", ip)
-		rr, err := dns.NewRR(q.Name + " A " + ip)
+		rr, err := dns.NewRR(q.Name + " " + dns.Type(q.Qtype).String() + " " + ip)
 		if err != nil {
 			log.Println("Failed to create RR:", q.Name, err)
 		}
@@ -173,8 +173,6 @@ func main() {
 		})
 		domainIPMap[key] = arr
 	}
-
-	log.Println(domainIPMap)
 
 	dns.HandleFunc(".", handler)
 	server := &dns.Server{

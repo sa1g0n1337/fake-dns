@@ -1,3 +1,3 @@
 {
-  "1.1.1.1":[".google.com", "!www.google.com"] 
+  "AAAA::1":[".google.com", "!www.google.com", "!.docs.google.com"] 
 }
