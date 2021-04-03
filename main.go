@@ -12,8 +12,6 @@ import (
 	"github.com/tidwall/gjson"
 )
 
-const internalIPv4 = "192.168.1.143"
-
 var dnsClient = &dns.Client{
 	Net:          "udp",
 	Timeout:      5 * time.Second,
